@@ -72,7 +72,7 @@ namespace SafinaLearn
         /// </summary>
         public static void Task2()
         {
-            Console.WriteLine("введите число");
+            Console.WriteLine("введите число:");
             int x = Convert.ToInt32(Console.ReadLine());
             if (x > 5 && x < 10)
             {
@@ -88,6 +88,16 @@ namespace SafinaLearn
         /// </summary>
         public static void Task3()
         {
+            Console.WriteLine("введите число:");
+            int x = Convert.ToInt32(Console.ReadLine());
+            if (x == 5 || x == 10)
+            {
+                Console.WriteLine("Число либо равно 5, либо равно 10");
+            }
+            else 
+            {
+                Console.WriteLine("Неизвестное число");
+            }
         }
         /// <summary>
         /// В банке в зависимости от суммы вклада начисляемый процент по вкладу может отличаться. Напишите консольную программу, в которую пользователь вводит сумму вклада. Если сумма вклада меньше 100, то начисляется 5%. Если сумма вклада от 100 до 200, то начисляется 7%. Если сумма вклада больше 200, то начисляется 10%. В конце программа должна выводить сумму вклада с начисленными процентами.
@@ -95,12 +105,46 @@ namespace SafinaLearn
         /// </summary>
         public static void Task4()
         {
+            Console.WriteLine("введите сумму вклада:");
+            double summaVklada = Convert.ToDouble(Console.ReadLine());
+            if (summaVklada < 100)
+            {
+                summaVklada = summaVklada * 1.05;
+            }
+            if (summaVklada >= 100 && summaVklada <= 200)
+            {
+                summaVklada = summaVklada * 1.07;
+            }
+            if (summaVklada > 200)
+            {
+                summaVklada = summaVklada * 1.1;
+            }
+                Console.WriteLine($"Результат: {summaVklada}");
+            
         }
         /// <summary>
         /// Изменим предыдущую задачу. Допустим, банк периодически начисляет по всем вкладам кроме процентов бонусы. И, допустим, сейчас банк решил доначислить по всем вкладам 15 единиц вне зависимости от их суммы. Измените программу таким образом, чтобы к финальной сумме дочислялись бонусы.
         /// </summary>
         public static void Task5()
         {
+            Console.WriteLine("введите сумму вклада:");
+            double summaVklada = Convert.ToDouble(Console.ReadLine());
+            if (summaVklada < 100)
+            {
+                summaVklada = summaVklada * 1.05;
+            }
+            if (summaVklada >= 100 && summaVklada <= 200)
+            {
+                summaVklada = summaVklada * 1.07;
+            }
+            if (summaVklada > 200)
+            {
+                summaVklada = summaVklada * 1.1;
+            }
+            summaVklada = summaVklada + 15;
+            Console.WriteLine($"Результат: {summaVklada}");
+
+
         }
         /// <summary>
         /// Напишите консольную программу, которая выводит пользователю сообщение "Введите номер операции: 1.Сложение 2.Вычитание 3.Умножение". Рядом с названием каждой операции указан ее номер, например, операция вычитания имеет номер 2. Пусть пользователь вводит в программу номер операции, и в зависимости от номера операции программа выводит ему название операции.
@@ -109,12 +153,53 @@ namespace SafinaLearn
         /// </summary>
         public static void Task6()
         {
+            Console.WriteLine("Введите номер операции: 1.Сложение 2.Вычитание 3.Умножение");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    Console.WriteLine("Сложение");
+                break;
+                case 2:
+                    Console.WriteLine("Вычитание");
+                    break;
+                case 3:
+                    Console.WriteLine("Умножение");
+                    break;
+                default:
+                    Console.WriteLine("Oперация неопределена");
+                    break;
+
+            }
         }
         /// <summary>
         /// Измените предыдущую программу. Пусть пользователь кроме номера операции вводит два числа, и в зависимости от номера операции с введенными числами выполняются определенные действия (например, при вводе числа 3 числа умножаются). Результа операции выводиться на консоль.
         /// </summary>
         public static void Task7()
         {
+            Console.WriteLine("Введите x:");
+            int x = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите y:");
+            int y = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите номер операции: 1.Сложение 2.Вычитание 3.Умножение");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    Console.WriteLine(x + y);
+                    break;
+                case 2:
+                    Console.WriteLine(x - y);
+                    break;
+                case 3:
+                    Console.WriteLine(x * y);
+                    break;
+                default:
+                    Console.WriteLine("Oперация неопределена");
+                    break;
+
+            }
+
         }
     }
 }
