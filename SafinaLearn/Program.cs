@@ -1,255 +1,130 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SafinaLearn
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             var inWork = true;
-            while (inWork) 
+            while (inWork)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------");
-                Console.WriteLine("Введите номер задания");
-                var option = Console.ReadLine();
-                switch (option)
+                Console.WriteLine("Введите номер темы:");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("(1) 1.1 - Условные конструкции");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("(2) 1.2 - Циклы");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("(3) 1.3 - Массивы");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("(4) 2.1 - Перегрузка операторов");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("(5) 2.2 - Перегрузка операций преобразования типов");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("(6) 2.3 - Обобщения");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("(7) 2.4 - Индексаторы");
+                Console.WriteLine("-----------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
+                var glovalOption = Console.ReadLine();
+                switch (glovalOption)
                 {
                     case "1":
-                        Task1();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        ConditionalConstructionsMenu();
                         break;
                     case "2":
-                        Task2();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        CyclesMenu();
                         break;
                     case "3":
-                        Task3();
+                        Console.ForegroundColor = ConsoleColor.Green;
                         break;
                     case "4":
-                        Task4();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         break;
                     case "5":
-                        Task5();
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         break;
                     case "6":
-                        Task6();
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         break;
                     case "7":
-                        Task7();
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                     default:
-                        inWork = false;
+                        Console.WriteLine("Неверное значение, хотите выйти? y/n");
+                        var choose = Console.ReadLine();
+                        if (choose == "y")
+                        {
+                            inWork = false;
+                        }
                         break;
                 }
-            }
-        }
-        /// <summary>
-        /// Напишите консольную программу, в которую пользователь вводит с клавиатуры два числа. А программа сранивает два введенных числа и выводит на консоль результат сравнения (два числа равны, первое число больше второго или первое число меньше второго).
-        /// </summary>
-        public static void Task1()
-        {
-            Console.WriteLine("Введите первое число");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int a = Convert.ToInt32(Console.ReadLine());
-            if (x == a)
-            {
-                Console.WriteLine("Два числа равны");
-            }
-            if (x > a)
-            {
-                Console.WriteLine("Первое число большего второго");
-            }
-            if (x < a)
-            {
-                Console.WriteLine("Первое число меньше второго");
-            }
-        }
-        /// <summary>
-        /// Напишите консольную программу, в которую пользователь вводит с клавиатуры число. Если число одновременно больше 5 и меньше 10, то программа выводит "Число больше 5 и меньше 10". Иначе программа выводит сообщение "Неизвестное число".
-        /// </summary>
-        public static void Task2()
-        {
-            Console.WriteLine("введите число:");
-            int x = Convert.ToInt32(Console.ReadLine());
-            if (x > 5 && x < 10)
-            {
-                Console.WriteLine("Число больше 5 и меньше 10");
-            }
-            else 
-            { 
-                Console.WriteLine("Неизвестное число"); 
-            }
-        }
-        /// <summary>
-        /// Напишите консольную программу, в которую пользователь вводит с клавиатуры число. Если число либо равно 5, либо равно 10, то программа выводит "Число либо равно 5, либо равно 10". Иначе программа выводит сообщение "Неизвестное число".
-        /// </summary>
-        public static void Task3()
-        {
-            Console.WriteLine("введите число:");
-            int x = Convert.ToInt32(Console.ReadLine());
-            if (x == 5 || x == 10)
-            {
-                Console.WriteLine("Число либо равно 5, либо равно 10");
-            }
-            else 
-            {
-                Console.WriteLine("Неизвестное число");
-            }
-        }
-        /// <summary>
-        /// В банке в зависимости от суммы вклада начисляемый процент по вкладу может отличаться. Напишите консольную программу, в которую пользователь вводит сумму вклада. Если сумма вклада меньше 100, то начисляется 5%. Если сумма вклада от 100 до 200, то начисляется 7%. Если сумма вклада больше 200, то начисляется 10%. В конце программа должна выводить сумму вклада с начисленными процентами.
-        /// Для получения вводимого с клавиатуры числа используйте выражение Convert.ToDouble(Console.ReadLine())
-        /// </summary>
-        public static void Task4()
-        {
-            Console.WriteLine("введите сумму вклада:");
-            double summaVklada = Convert.ToDouble(Console.ReadLine());
-            if (summaVklada < 100)
-            {
-                summaVklada = summaVklada * 1.05;
-            }
-            if (summaVklada >= 100 && summaVklada <= 200)
-            {
-                summaVklada = summaVklada * 1.07;
-            }
-            if (summaVklada > 200)
-            {
-                summaVklada = summaVklada * 1.1;
-            }
-                Console.WriteLine($"Результат: {summaVklada}");
-            
-        }
-        /// <summary>
-        /// Изменим предыдущую задачу. Допустим, банк периодически начисляет по всем вкладам кроме процентов бонусы. И, допустим, сейчас банк решил доначислить по всем вкладам 15 единиц вне зависимости от их суммы. Измените программу таким образом, чтобы к финальной сумме дочислялись бонусы.
-        /// </summary>
-        public static void Task5()
-        {
-            Console.WriteLine("введите сумму вклада:");
-            double summaVklada = Convert.ToDouble(Console.ReadLine());
-            if (summaVklada < 100)
-            {
-                summaVklada = summaVklada * 1.05;
-            }
-            if (summaVklada >= 100 && summaVklada <= 200)
-            {
-                summaVklada = summaVklada * 1.07;
-            }
-            if (summaVklada > 200)
-            {
-                summaVklada = summaVklada * 1.1;
-            }
-            summaVklada = summaVklada + 15;
-            Console.WriteLine($"Результат: {summaVklada}");
 
-
+                
+            }
         }
-        /// <summary>
-        /// Напишите консольную программу, которая выводит пользователю сообщение "Введите номер операции: 1.Сложение 2.Вычитание 3.Умножение". Рядом с названием каждой операции указан ее номер, например, операция вычитания имеет номер 2. Пусть пользователь вводит в программу номер операции, и в зависимости от номера операции программа выводит ему название операции.
-        /// Для определения операции по введенному номеру используйте конструкцию switch...case.
-        /// Если введенное пользователем число не соответствует никакой операции(например, число 120), то выведите пользователю сообщение о том, что операция неопределена.
-        /// </summary>
-        public static void Task6()
+        
+        public static void ConditionalConstructionsMenu()
         {
-            Console.WriteLine("Введите номер операции: 1.Сложение 2.Вычитание 3.Умножение");
-            int option = Convert.ToInt32(Console.ReadLine());
-            switch (option)
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Введите номер задания (1-7)");
+            var taskOption = Console.ReadLine();
+            switch (taskOption)
             {
-                case 1:
-                    Console.WriteLine("Сложение");
-                break;
-                case 2:
-                    Console.WriteLine("Вычитание");
+                case "1":
+                    ConditionalConstructions.Start.Task1();
                     break;
-                case 3:
-                    Console.WriteLine("Умножение");
+                case "2":
+                    ConditionalConstructions.Start.Task2();
+                    break;
+                case "3":
+                    ConditionalConstructions.Start.Task3();
+                    break;
+                case "4":
+                    ConditionalConstructions.Start.Task4();
+                    break;
+                case "5":
+                    ConditionalConstructions.Start.Task5();
+                    break;
+                case "6":
+                    ConditionalConstructions.Start.Task6();
+                    break;
+                case "7":
+                    ConditionalConstructions.Start.Task7();
                     break;
                 default:
-                    Console.WriteLine("Oперация неопределена");
                     break;
-
             }
+            Console.WriteLine("-----------------------------------------");
         }
-        /// <summary>
-        /// Измените предыдущую программу. Пусть пользователь кроме номера операции вводит два числа, и в зависимости от номера операции с введенными числами выполняются определенные действия (например, при вводе числа 3 числа умножаются). Результа операции выводиться на консоль.
-        /// </summary>
-        public static void Task7()
+        public static void CyclesMenu()
         {
-            Console.WriteLine("Введите x:");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите y:");
-            int y = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите номер операции: 1.Сложение 2.Вычитание 3.Умножение");
-            int option = Convert.ToInt32(Console.ReadLine());
-            switch (option)
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Введите номер задания (1-4)");
+            var taskOption = Console.ReadLine();
+            switch (taskOption)
             {
-                case 1:
-                    Console.WriteLine(x + y);
+                case "1":
+                    Cycles.Start.Task1();
                     break;
-                case 2:
-                    Console.WriteLine(x - y);
+                case "2":
+                    Cycles.Start.Task2();
                     break;
-                case 3:
-                    Console.WriteLine(x * y);
+                case "3":
+                    Cycles.Start.Task3();
+                    break;
+                case "4":
+                    Cycles.Start.Task4();
                     break;
                 default:
-                    Console.WriteLine("Oперация неопределена");
                     break;
-
             }
-
+            Console.WriteLine("-----------------------------------------");
         }
+
     }
 }
-//Console.WriteLine("Введите x");
-//string inputX = Console.ReadLine();
-//Console.WriteLine("Введите y");
-//string inputY = Console.ReadLine();
-//int x = Convert.ToInt32(inputX);
-//int y = Convert.ToInt32(inputY);
-
-//if ( x == 30 && x == 50 )
-//{
-//    Console.WriteLine("30 и 50");
-//}
-
-//if ( x > 30 || x < 15)
-//{
-//    Console.WriteLine("x больше 30 или меньще 15");
-//}
-//if ((x <= 10 || x > 20) && x != 15 )
-//{
-//    Console.WriteLine("(x меньше или равно 10 или больше 20) и x не равно 15");
-//}
-//if ((x < y) || (x < 20 && x > 10 && y > 10) && x != 0 && y != 0)
-//{
-//    Console.WriteLine("(X меньше Y) или (X меньше 20 и больше 10 и Y больше 10) и X не равно 0 и Y не равно 0");
-//}
-
-//switch (x)
-//{
-//    case 30:
-//        Console.WriteLine("мама по попе даст");
-//        break;
-//    case 50:
-//        Console.WriteLine("куда тебе такой старик");
-//        break;
-//    default:
-//        Console.WriteLine("не попал");
-//        break;
-//}
-
-//if (x > 50)
-//{
-//    Console.WriteLine("МНЕ БОЛЬШЕ 50 АЛО");
-//}
-//else if (x > 30)
-//{
-//    Console.WriteLine("то вам попа от мамы");
-//}
-//else
-//{
-//    Console.WriteLine("нормик");
-//}
